@@ -158,6 +158,8 @@ class TopLevelCommands(AutoRegisteringGroup):
         Logger.root.setLevel(logging.INFO)
         formatter = logging.Formatter(SERENA_LOG_FORMAT)
         memory_log_handler = MemoryLogHandler()
+        if Logger.root.handlers:
+             Logger.root.handlers.clear()
         Logger.root.addHandler(memory_log_handler)
         stderr_handler = logging.StreamHandler(stream=sys.stderr)
         stderr_handler.formatter = formatter
