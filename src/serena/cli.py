@@ -169,8 +169,8 @@ class TopLevelCommands(AutoRegisteringGroup):
         file_handler.formatter = formatter
         Logger.root.addHandler(file_handler)
 
-        log.info("Initializing Serena MCP server")
-        log.info("Storing logs in %s", log_path)
+        #log.info("Initializing Serena MCP server")
+        #log.info("Storing logs in %s", log_path)
         project_file = project_file_arg or project
         factory = SerenaMCPFactorySingleProcess(context=context, project=project_file, memory_log_handler=memory_log_handler)
         server = factory.create_mcp_server(
@@ -183,12 +183,12 @@ class TopLevelCommands(AutoRegisteringGroup):
             trace_lsp_communication=trace_lsp_communication,
             tool_timeout=tool_timeout,
         )
-        if project_file_arg:
-            log.warning(
-                "Positional project arg is deprecated; use --project instead. Used: %s",
-                project_file,
-            )
-        log.info("Starting MCP server …")
+        #if project_file_arg:
+            #log.warning(
+            #    "Positional project arg is deprecated; use --project instead. Used: %s",
+            #    project_file,
+            #)
+        #log.info("Starting MCP server …")
         server.run(transport=transport)
 
     @staticmethod
