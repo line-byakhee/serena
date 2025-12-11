@@ -431,7 +431,7 @@ class SerenaConfig(ToolInclusionDefinition, ToStringMixin):
             cls._generate_config_file(config_file_path)
 
         # load the configuration
-        log.info(f"Loading Serena configuration from {config_file_path}")
+        #log.info(f"Loading Serena configuration from {config_file_path}")
         try:
             loaded_commented_yaml = load_yaml(config_file_path, preserve_comments=True)
         except Exception as e:
